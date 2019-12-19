@@ -12,8 +12,8 @@ PY2 = sys.version_info[0] == 2
 
 
 if not PY2:
-    text_type = str
+    text_type = str  # noqa: F821
     string_types = (str,)
 else:
-    text_type = unicode
-    string_types = (str, unicode)
+    text_type = unicode  # noqa: F821
+    string_types = (str, unicode)  # noqa: F821
