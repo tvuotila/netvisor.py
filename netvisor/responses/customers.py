@@ -11,6 +11,7 @@ from .base import Response
 
 
 class CustomerListResponse(Response):
+    list = True
     schema_cls = CustomerListSchema
     tag_name = 'customerlist'
 

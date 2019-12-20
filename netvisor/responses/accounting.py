@@ -11,5 +11,6 @@ from .base import Response
 
 
 class AccountingListResponse(Response):
+    list = True
     schema_cls = AccountingListSchema
     tag_name = 'vouchers'

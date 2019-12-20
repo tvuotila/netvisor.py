@@ -11,5 +11,6 @@ from .base import Response
 
 
 class SalesPaymentListResponse(Response):
+    list = True
     schema_cls = SalesPaymentListSchema
     tag_name = 'sales_payment_list'

@@ -11,6 +11,7 @@ from .base import Response
 
 
 class ProductListResponse(Response):
+    list = True
     schema_cls = ProductListSchema
     tag_name = 'product_list'
 

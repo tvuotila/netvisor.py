@@ -13,6 +13,8 @@ from ..exc import NetvisorError
 
 
 class Response(object):
+    list = False
+
     def __init__(self, response):
         self.response = response
         self.parse()
@@ -32,7 +34,11 @@ class Response(object):
     def deserialize(self):
         if self.schema_cls is not None:
             schema = self.schema_cls(strict=True)
-            result = schema.load(self.raw_data['root'][self.tag_name])
+            tag_data = self.raw_data['root'][self.tag_name]
+            if tag_data is None:
+                self.data = [] if self.list else None
+                return
+            result = schema.load(tag_data)
             self.data = result.data
         else:
             self.data = None
